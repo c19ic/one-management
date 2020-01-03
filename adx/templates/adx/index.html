@@ -1,0 +1,11 @@
+<br>
+<h1> Landing page for adx</h1>
+{% if latest_person_list %}
+<ul>
+    {% for person in latest_person_list %}
+        <li>Full Name: {{ person.full_name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No persons are available.</p>
+{% endif %}
