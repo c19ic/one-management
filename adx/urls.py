@@ -7,5 +7,5 @@ app_name = 'adx'
 
 urlpatterns = [
     # ex: /adx/
-    path('', views.IndexView.as_view(), name='index'),
+    path('', views.IndexView.as_view(), name='login'),
 ]

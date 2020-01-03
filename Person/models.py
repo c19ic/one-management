@@ -1,4 +1,5 @@
 from django.db import models
+from adx.models import ONEUser
 
 
 class PersonSizes(models.Model):
@@ -171,6 +172,7 @@ class BoardGroup(models.Model):
     is_group = models.BooleanField(default = True)    
     is_radio = models.BooleanField(default = True) # True => radio, False => add on
     belongs_to_menu = models.ForeignKey(SiteMenu, on_delete = models.CASCADE)
+    person_permissions = models.ManyToManyField(ONEUser)
 
     def __str__(self):
         return self.name
@@ -181,6 +183,8 @@ class Board(models.Model):
     is_visible = models.BooleanField(default = False)
     is_radio = models.BooleanField(default = True) # True => radio, False => add on
     belongs_to_group = models.ForeignKey(BoardGroup, on_delete = models.CASCADE)
+    person_permissions = models.ManyToManyField(ONEUser)
+
     def __str__(self):
         return self.belongs_to_group.name +":"+self.name
 
